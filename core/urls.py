@@ -4,7 +4,6 @@ from rest_framework.routers import DefaultRouter
 import core.views
 
 urlpatterns = [
-    path('', core.views.index),
 ]
 
 
