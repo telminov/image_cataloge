@@ -8,5 +8,6 @@ urlpatterns = [
 
 
 router = DefaultRouter()
+router.register('catalogs', core.views.CatalogViewSet, basename='catalogs')
 router.register('images', core.views.ImageViewSet, basename='images')
 urlpatterns += router.urls
