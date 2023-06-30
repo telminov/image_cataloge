@@ -10,7 +10,7 @@ class CatalogShort(serializers.ModelSerializer):
         fields = '__all__'
 
     def get_top_images(self, obj: models.Catalog):
-        return Image(instance=obj.images.all()[:5], many=True).data
+        return Image(instance=obj.images.all()[:5], many=True, context=self.context).data
 
 
 class CatalogDetail(serializers.ModelSerializer):
@@ -21,7 +21,7 @@ class CatalogDetail(serializers.ModelSerializer):
         fields = '__all__'
 
     def get_images(self, obj: models.Catalog):
-        return Image(instance=obj.images.all(), many=True).data
+        return Image(instance=obj.images.all(), many=True, context=self.context).data
 
 
 class Image(serializers.ModelSerializer):
