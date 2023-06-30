@@ -4,7 +4,12 @@ from core import models, serializers
 
 class CatalogViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.Catalog.objects.all()
-    serializer_class = serializers.Catalog
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return serializers.CatalogShort
+        if self.action == 'retrieve':
+            return serializers.CatalogDetail
 
 
 class ImageViewSet(viewsets.ReadOnlyModelViewSet):
